@@ -1,0 +1,20 @@
+
+  0%|                                                                                                                                                                                                | 0/186 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 87, in <module>
+    train()
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 84, in train
+    trainer.train()
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2052, in train
+    return inner_training_loop(
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2388, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 3485, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 3532, in compute_loss
+    outputs = model(**inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)

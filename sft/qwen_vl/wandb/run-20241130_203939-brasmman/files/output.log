@@ -1,0 +1,66 @@
+
+
+
+
+
+  0%|▎                                                                                                                                                                                                | 4/3000 [00:26<5:22:40,  6.46s/it]
+
+
+  0%|▍                                                                                                                                                                                                | 7/3000 [00:39<4:40:31,  5.62s/it]Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/linecache.py", line 137, in updatecache
+    lines = fp.readlines()
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/codecs.py", line 319, in decode
+    def decode(self, input, final=False):
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 78, in <module>
+    train()
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 75, in train
+    trainer.train()
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2052, in train
+    return inner_training_loop(
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2388, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 3485, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 3532, in compute_loss
+    outputs = model(**inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1519, in forward
+    else self._run_ddp_forward(*inputs, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1355, in _run_ddp_forward
+    return self.module(*inputs, **kwargs)  # type: ignore[index]
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1691, in forward
+    image_embeds = self.visual(pixel_values, grid_thw=image_grid_thw)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1128, in forward
+    hidden_states = blk(hidden_states, cu_seqlens=cu_seqlens, rotary_pos_emb=rotary_pos_emb)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 431, in forward
+    hidden_states = hidden_states + self.attn(
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 395, in forward
+    q = apply_rotary_pos_emb_vision(q.unsqueeze(0), rotary_pos_emb).squeeze(0)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 254, in apply_rotary_pos_emb_vision
+    sin = sin.unsqueeze(1).repeat(1, 1, 2).unsqueeze(0).float()
+KeyboardInterrupt

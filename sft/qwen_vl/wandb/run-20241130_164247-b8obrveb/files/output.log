@@ -1,0 +1,45 @@
+
+  0%|                                                                                                                                                                                                             | 0/375 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 37, in <module>
+    trainer.train()
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2052, in train
+    return inner_training_loop(
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2388, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 3485, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 3532, in compute_loss
+    outputs = model(**inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1691, in forward
+    image_embeds = self.visual(pixel_values, grid_thw=image_grid_thw)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1128, in forward
+    hidden_states = blk(hidden_states, cu_seqlens=cu_seqlens, rotary_pos_emb=rotary_pos_emb)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 431, in forward
+    hidden_states = hidden_states + self.attn(
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 404, in forward
+    attn_output = F.scaled_dot_product_attention(q, k, v, attention_mask, dropout_p=0.0)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 10.00 GiB. GPU 0 has a total capacty of 44.35 GiB of which 8.67 GiB is free. Including non-PyTorch memory, this process has 35.68 GiB memory in use. Of the allocated memory 34.84 GiB is allocated by PyTorch, and 527.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

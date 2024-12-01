@@ -1,0 +1,71 @@
+
+  0%|                                                                                                                                                                                                           | 0/1500 [00:00<?, ?it/s]/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py:1286: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+
+
+
+  0%|▌                                                                                                                                                                                                | 4/1500 [00:31<3:18:27,  7.96s/it]
+[2024-11-30 20:54:09,200] [WARNING] [stage3.py:1949:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+
+
+
+  0%|▉                                                                                                                                                                                                | 7/1500 [00:47<2:25:40,  5.85s/it]Traceback (most recent call last):
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 83, in <module>
+    train()
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 80, in train
+    trainer.train()
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2052, in train
+    return inner_training_loop(
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2388, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 3485, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 3532, in compute_loss
+    outputs = model(**inputs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1814, in forward
+    loss = self.module(*inputs, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1691, in forward
+    image_embeds = self.visual(pixel_values, grid_thw=image_grid_thw)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1128, in forward
+    hidden_states = blk(hidden_states, cu_seqlens=cu_seqlens, rotary_pos_emb=rotary_pos_emb)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1557, in _call_impl
+    args_result = hook(self, args)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/zero/parameter_offload.py", line 392, in _pre_forward_module_hook
+    self.pre_sub_module_forward_function(module)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/zero/parameter_offload.py", line 505, in pre_sub_module_forward_function
+    param_coordinator.fetch_sub_module(sub_module, forward=prev_grad_state)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/zero/partitioned_param_coordinator.py", line 379, in fetch_sub_module
+    self.__all_gather_params(params_to_prefetch, forward)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/zero/partitioned_param_coordinator.py", line 428, in __all_gather_params
+    self.__all_gather_params_(nonquantized_params, forward, quantize=self.zero_quantized_weights)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/zero/partitioned_param_coordinator.py", line 446, in __all_gather_params_
+    handle = partitioned_params[0].all_gather_coalesced(partitioned_params,
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1117, in all_gather_coalesced
+    param_ds_tensor.to(get_accelerator().current_device_name()),
+KeyboardInterrupt

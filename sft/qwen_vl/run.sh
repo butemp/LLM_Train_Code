@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 DS_SKIP_CUDA_CHECK=1 torchrun --nproc_per_node=4 train.py --deepspeed ../deepspeed/ds_z3_offload_config.json

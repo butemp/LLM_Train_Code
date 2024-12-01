@@ -1,0 +1,10 @@
+
+  0%|                                                                                                                                                                                                                    | 0/93 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 92, in <module>
+    train()
+  File "/mnt/new_disk/qjw/my_llm_code/sft/qwen_vl/train.py", line 89, in train
+    trainer.train()
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2052, in train
+    return inner_training_loop(
+  File "/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/transformers/trainer.py", line 2388, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)

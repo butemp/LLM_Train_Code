@@ -1,0 +1,16 @@
+
+
+  0%|                                                                                                                                                                                                 | 0/93 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+/mnt/new_disk/czy/anaconda3/envs/llavanext/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py:1286: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+  1%|█▉                                                                                                                                                                                       | 1/93 [00:28<43:41, 28.50s/it]
+
+  2%|███▉                                                                                                                                                                                     | 2/93 [00:48<35:46, 23.59s/it]
+
+  3%|█████▉                                                                                                                                                                                   | 3/93 [01:08<32:42, 21.81s/it]
+
+  4%|███████▉                                                                                                                                                                                 | 4/93 [01:28<31:06, 20.97s/it]
+
+  5%|█████████▉                                                                                                                                                                               | 5/93 [01:47<29:53, 20.38s/it]
+
+  6%|███████████▉                                                                                                                                                                             | 6/93 [02:07<29:12, 20.15s/it]
